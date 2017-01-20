@@ -24,8 +24,8 @@ RUN pecl install imagick && docker-php-ext-enable imagick
 ENV LDAP_URL ldap://localhost
 ENV LDAP_PORT 389
 ENV LDAP_DN example.com
-ENV USER_OU people
-ENV GROUP_OU group
+ENV USER_DN ou=people,dc=example,dc=com
+ENV GROUP_DN ou=group,dc=example,dc=com
 
 # Install ldap-account-manager package
 RUN curl https://nchc.dl.sourceforge.net/project/lam/LAM/${LAM_VERSION}/${LAM_PACKAGE}.tar.bz2 \
