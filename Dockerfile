@@ -2,7 +2,8 @@ FROM php:5.6-apache
 
 MAINTAINER mengzhaopeng <qiuranke@gmail.com>
 
-ENV LAM_PACKAGE ldap-account-manager-5.6
+ENV LAM_VERSION 5.6
+ENV LAM_PACKAGE ldap-account-manager-${LAM_VERSION}
 
 # Install the software that lam environment requires
 RUN apt-get update && apt-get install -y \
@@ -20,12 +21,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN pecl install imagick && docker-php-ext-enable imagick
 
-ENV LDAP_URL localhost
+ENV LDAP_URL ldap://localhost
 ENV LDAP_PORT 389
 ENV LDAP_DN example.com
+ENV USER_OU people
+ENV GROUP_OU group
 
 # Install ldap-account-manager package
-RUN curl https://nchc.dl.sourceforge.net/project/lam/LAM/5.6/${LAM_PACKAGE}.tar.bz2 \
+RUN curl https://nchc.dl.sourceforge.net/project/lam/LAM/${LAM_VERSION}/${LAM_PACKAGE}.tar.bz2 \
         -o ${LAM_PACKAGE}.tar.bz2 \
     && bzip2 -d ${LAM_PACKAGE}.tar.bz2 \
     && tar xf ${LAM_PACKAGE}.tar -C /var/www/html \
