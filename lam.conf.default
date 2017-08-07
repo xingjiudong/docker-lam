@@ -13,7 +13,7 @@ serverURL: ldap://localhost:389
 admins: cn=Manager,dc=my-domain,dc=com
 
 # password to change these preferences via webfrontend (default: lam)
-passwd: {SSHA}RjBruJcTxZEdcBjPQdRBkDaSQeY= iueleA==
+Passwd: {SSHA}RjBruJcTxZEdcBjPQdRBkDaSQeY= iueleA==
 
 # suffix of tree view
 # e.g. dc=yourdomain,dc=org

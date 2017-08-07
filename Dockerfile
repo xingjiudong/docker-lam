@@ -1,8 +1,8 @@
-FROM php:5.6-apache
+FROM php:7.1-apache
 
 MAINTAINER mengzhaopeng <qiuranke@gmail.com>
 
-ENV LAM_VERSION 5.6
+ENV LAM_VERSION 6.0.1
 ENV LAM_PACKAGE ldap-account-manager-${LAM_VERSION}
 
 # Install the software that lam environment requires
