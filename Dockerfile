@@ -35,7 +35,7 @@ RUN curl https://nchc.dl.sourceforge.net/project/lam/LAM/${LAM_VERSION}/${LAM_PA
     && rm -f ${LAM_PACKAGE}.tar \
     && mv /var/www/html/${LAM_PACKAGE} /var/www/html/lam
 
-COPY lam.conf.default /var/www/html/lam/config/lam.conf
+COPY lam.conf.default /var/www/html/lam/
 COPY setup.sh /usr/local/bin/setup.sh
 
 RUN chown -R www-data:www-data /var/www/html/lam
