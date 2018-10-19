@@ -2,7 +2,7 @@ FROM php:5.6-apache
 
 MAINTAINER mengzhaopeng <qiuranke@gmail.com>
 
-ENV LAM_VERSION 5.6
+ENV LAM_VERSION 5.3
 ENV LAM_PACKAGE ldap-account-manager-${LAM_VERSION}
 
 # Install the software that lam environment requires
@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libldap2-dev \
         libmagickwand-dev \
-        libpng12-dev --no-install-recommends \
+        libpng-dev --no-install-recommends \
+        pkg-config \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ \
            --with-jpeg-dir=/usr/include/ \
