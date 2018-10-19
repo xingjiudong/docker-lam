@@ -29,8 +29,7 @@ ENV USER_DN ou=people,dc=example,dc=com
 ENV GROUP_DN ou=group,dc=example,dc=com
 
 # Install ldap-account-manager package
-RUN curl https://nchc.dl.sourceforge.net/project/lam/LAM/${LAM_VERSION}/${LAM_PACKAGE}.tar.bz2 \
-        -o ${LAM_PACKAGE}.tar.bz2 \
+RUN curl -sLo ${LAM_PACKAGE}.tar.bz2 https://nchc.dl.sourceforge.net/project/lam/LAM/${LAM_VERSION}/${LAM_PACKAGE}.tar.bz2 \
     && bzip2 -d ${LAM_PACKAGE}.tar.bz2 \
     && tar xf ${LAM_PACKAGE}.tar -C /var/www/html \
     && rm -f ${LAM_PACKAGE}.tar \
