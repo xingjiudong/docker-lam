@@ -33,7 +33,8 @@ RUN curl -sLo ${LAM_PACKAGE}.tar.bz2 https://nchc.dl.sourceforge.net/project/lam
     && bzip2 -d ${LAM_PACKAGE}.tar.bz2 \
     && tar xf ${LAM_PACKAGE}.tar -C /var/www/html \
     && rm -f ${LAM_PACKAGE}.tar \
-    && mv /var/www/html/${LAM_PACKAGE} /var/www/html/lam
+    && mv /var/www/html/${LAM_PACKAGE} /var/www/html/lam \
+    && cp /var/www/html/lam/config/config.cfg.sample  /var/www/html/lam/config/config.cfg
 
 COPY lam.conf.default /var/www/html/lam/config/lam.conf
 COPY setup.sh /usr/local/bin/setup.sh
