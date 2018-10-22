@@ -11,7 +11,7 @@ LAM_CONF_FILE=/var/www/html/lam/config/lam.conf
 : ${GROUP_DN:=ou=group,dc=example,dc=com}
 
 if [ ! -f "$LAM_CONF_FILE" ]; then
-    sed -e "s#serverURL: ldap://localhost:389#ServerURL: ${LDAP_URL}:${LDAP_PORT}#g" /var/www/html/lam/lam.conf.default > ${LAM_CONF_FILE}
+    sed -e "s#serverURL: ldap://localhost:389#ServerURL: ${LDAP_URL}:${LDAP_PORT}#g" /var/www/html/lam/config/lam.conf.default > ${LAM_CONF_FILE}
     sed -i "s/admins: cn=Manager,dc=my-domain,dc=com/Admins: ${LDAP_ADMIN}/g" ${LAM_CONF_FILE}
     sed -i "s/treesuffix: dc=yourdomain,dc=org/treesuffix: ${SLAPD_DN}/g" ${LAM_CONF_FILE}
     sed -i "s/types: suffix_user: ou=People,dc=my-domain,dc=com/types: suffix_user: ${USER_DN}/g" ${LAM_CONF_FILE}
